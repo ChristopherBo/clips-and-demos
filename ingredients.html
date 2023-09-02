@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<!--
+	Phase Shift by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Ingredients - Nutriapp</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-wide.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div class="wrapper style1">
+
+				<!-- Header -->
+				<div id="logo" style="z-index: 99; height: 3em; top: 0.6em;overflow:hidden">
+					<img src="images/nutriapp-white-transparent.png" alt="NutriApp" style="height:100%; object-fit: contain;">
+				</div>
+				<div id="header" class="skel-panels-fixed" style="z-index: 1; height: 9%">
+					<nav id="nav">
+						<ul>
+							<li class="active"><a href="meals.html">Meals</a></li>
+							<li><a href="log.html">Log Info</a></li>
+							<li><a href="teams.html">Team</a></li>
+							<li><a href="profile.html">Profile</a></li>
+							<li><a href="login.html">Login</a></li>
+						</ul>
+					</nav>
+				</div>
+
+				<!-- Page -->
+					<div id="page" class="container">
+						<section>
+							<header class="major">
+								<div class="tab">
+								  <button class="tablinks" id="ingredients-tab-btn" onclick="switchTab(event, 'Ingredients')"><h2>Ingredients</h2></button>
+								  <button class="tablinks" onclick="switchTab(event, 'Shopping List')" style="border-left: 5px solid #000;"><h2>Shopping List</h2></button>
+								</div>
+							</header>
+							<!-- Profile Stats & Input Form -->
+							<div id="Ingredients" class="tabcontent">
+								<header class="major" style="padding-bottom:0.5em;"><h2>Ingredients</h2></header>
+								<input type="text" class="cd-search table-filter" data-table="ingredient-list" placeholder="Item to filter.." />
+								<table class="ingredient-list" id="ingredient-list">
+									<thead class="shopping-head">
+										<tr>
+											<th class="Title">Item</th>
+											<th class="Type">Stock</th>
+											<th class="Calories">Calories</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+							<div id="Shopping List" class="tabcontent">
+								<header class="major" style="padding-bottom:0.5em;"><h2>Shopping List</h2></header>
+								<input type="text" class="cd-search table-filter" data-table="shopping-list" placeholder="Item to filter.." />
+								<table class="shopping-list" id="shopping-list">
+									<thead class="shopping-head">
+										<tr>
+											<th class="Title">Item</th>
+											<th class="Type">Quantity</th>
+											<th class="Calories">Bought</th>
+											<th class="Date">Date</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</section>
+						<hr><hr><hr><hr>
+<!--					Secondary form for popup & changing weight goal-->
+						<div id="light">
+							<input type="checkbox" id="weight-goal-checkbox" value="yes" checked>Enable weight goal algorithm
+							<hr>
+							<button class="button small" onclick="lightbox_close('lose')">Lose Weight</button>
+							<button class="button small" onclick="lightbox_close('maintain')">Maintain Weight</button>
+							<button class="button small" onclick="lightbox_close('gain')">Gain Weight</button>
+						</div>
+						<div id="fade" onClick="lightbox_close();"></div>
+					</div>
+		
+		<!--					Tertiary form for popup & exporting history as given file format-->
+						<div id="light2">
+							<h2>File Format</h2>
+							<input type="radio" name="file-format" id="csv-checkbox" value="CSV" checked required/>CSV
+							<input type="radio" name="file-format" id="xml-checkbox" value="XML" required/>XML
+							<input type="radio" name="file-format" id="json-checkbox" value="JSON" required/>JSON
+							<h2 style="padding: 0.3em 0em 0em 0em;">Data To Export</h2>
+							<input type="checkbox" name="export-type" id="export-recipes-checkbox" value="recipes">Recipes
+							<input type="checkbox" name="export-type" id="export-shopping-list-checkbox" value="shopping list">Shopping List
+							<input type="checkbox" name="export-type" id="export-ingredients-checkbox" value="ingredient stock">Ingredient Stock
+							<input type="checkbox" name="export-type" id="export-profile-checkbox" value="profile">Profile
+							<input type="checkbox" name="export-type" id="export-history-checkbox" value="history">History
+							<hr style="margin-bottom:0.5em; margin-block-start:0.5em; margin-block-end:0.5em; margin-inline-start:0em; margin-inline-end:0em;">
+							<button class="button small" onclick="export_data();">Export Data</button>
+							<p id="error-text" style="color: red; display: none;"></p>
+						</div>
+						<div id="fade2" onClick="lightbox2_close();"></div>
+
+				<!-- /Page -->
+
+	</div>
+<br>
+	<!-- Copyright -->
+		<div id="copyright">
+			<div class="container">
+				<div class="copyright">
+					<p>Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>) Developed by <a href="https://github.com/RIT-SWEN-262/designproject-02-team2">Team 2</a></p>
+					<ul class="icons">
+						<li><a href="#" class="fa fa-facebook"><span>Facebook</span></a></li>
+						<li><a href="#" class="fa fa-twitter"><span>Twitter</span></a></li>
+						<li><a href="#" class="fa fa-google-plus"><span>Google+</span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="js/index.js"></script>
+	</body>
+</html>
