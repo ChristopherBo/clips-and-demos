@@ -103,3 +103,15 @@ var TableFilter = (function() {
   
  TableFilter.init(); 
 })();
+
+var demos_searchbar = document.getElementById('demos-searchbar-input')
+
+demos_searchbar.addEventListener("keydown", function(event){
+	if (event.keyCode === 13) {
+		event.preventDefault();
+		var input = demos_searchbar.value;
+		keywords = input.trim().split(" ");
+		console.log(keywords);
+		input = '';
+	}
+});
