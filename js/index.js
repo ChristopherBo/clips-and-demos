@@ -63,6 +63,44 @@ function switchTab(evt, tabName) {
 //auto set it to the ingredients tab
 document.getElementById('ingredients-tab-btn').click();
 
+//loads demos into site
+function load_demo_data() {
+	console.log("starting...");
+	const demo_table = document.getElementById("shopping-list");
+	const results = [];
+	var demo_search = {};
+	fs.createReadStream(__dirname+'/demos1.csv')
+		.pipe(csv())
+		.on('data', (data) => results.push(data))
+		.on('end', () => {
+			// console.log(results);
+			for(let i=0; i < results.length; i++) {
+				let desc = results[i].DESCRIPTION.trim().toLowerCase().split(/\s+|_/);
+				// if(desc.indexOf("vanity") != -1) {
+				//     console.log(desc);
+				// }
+				let demo_link = results[i].DEMOLINK;
+				let yt_link = results[i].YTLINK;
+				let title = results[i].KEYWORDS;
+				let game = results[i].GAME;
+				let author = results[i].AUTHOR;
+				let tags = results[i].YTVIDEONAME;
+				let entry = {"DESC":desc, "DEMOLINK":demo_link, "YTLINK":yt_link};
+				demo_search[desc] = entry;
+				// console.log(demo_search[desc]["DEMOLINK"]);
+
+				var row = demo_table.insertRow(0);
+				var game_cell = demo_table.insertCell(0); game_cell.innerHTML = game;
+				var title_cell = demo_table.insertCell(1); title_cell.innerHTML = title;
+				var author_cell = demo_table.insertCell(2); author_cell.innerHTML = author;
+				var tags_cell = demo_table.insertCell(3); tags_cell.innerHTML = tags;
+				var preview_cell = demo_table.insertCell(4); preview_cell.innerHTML = yt_link;
+				var demo_link_cell = demo_table.insertCell(5); demo_link_cell.innerHTML = demo_link;
+			}
+		});
+}
+
+load_demo_data();
 
 //Search function for ingredients and shopping list tables
 (function() {
